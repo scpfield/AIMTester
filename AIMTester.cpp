@@ -42,8 +42,8 @@ typedef struct _THREAD_DATA
 DWORD WINAPI thread_proc(LPVOID param)
 {
     THREAD_DATA* p_thread_data = (THREAD_DATA*)param;
-    //LPCWSTR path = L"/dev/skus";
-    LPCWSTR path = L"/api/v1/create";
+    LPCWSTR path = L"/dev/skus";
+    //LPCWSTR path = L"/api/v1/create";
     LPCSTR p_post_data = NULL;
     HANDLE h_heap = NULL;
     LPSTR p_buf = NULL;
@@ -64,8 +64,8 @@ DWORD WINAPI thread_proc(LPVOID param)
     //printf("DATA\n");
     //printf(p_buf);
 
-    //p_post_data = "{\"sku\": \"09351234\", \"description\": \"foobar123\", \"price\": \"2.99\"}";
-    p_post_data = "{\"name\":\"05634s\",\"salary\":\"5653\",\"age\":\"34\"}";
+    p_post_data = "{\"sku\": \"09351234\", \"description\": \"foobar123\", \"price\": \"2.99\"}";
+    //p_post_data = "{\"name\":\"05634s\",\"salary\":\"5653\",\"age\":\"34\"}";
 
     printf("post data = %s", p_post_data);
 
@@ -387,8 +387,8 @@ int main()
     for (i = 0; i < max_threads; i++)
     {
         r_thread_data[i].thread_num = i;
-        //r_thread_data[i].target_server = L"1ryu4whyek.execute-api.us-west-2.amazonaws.com";
-        r_thread_data[i].target_server = L"www.dummy.restapiexample.com";
+        r_thread_data[i].target_server = L"1ryu4whyek.execute-api.us-west-2.amazonaws.com";
+        //r_thread_data[i].target_server = L"www.dummy.restapiexample.com";
 
         h_threads[i] = CreateThread(NULL, 0, thread_proc, &r_thread_data[i], 0, NULL);
 
